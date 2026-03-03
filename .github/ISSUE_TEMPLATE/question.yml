@@ -1,6 +1,6 @@
 name: Question / General
 description: Ask a question or share general feedback
-title: "query: <title>"
+title: "question: <title>"
 labels: ["question"]
 body:
   - type: textarea

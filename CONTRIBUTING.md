@@ -33,7 +33,7 @@ npm run build
 This project uses the following core technology stack:
 
 * **Language**: [TypeScript](https://www.typescriptlang.org/) (for type safety and maintainability)
-* **Library**: [React](https://reactjs.org/) (for building the user interface)
+* **Library**: [React](https://react.dev/) (for building the user interface)
 
 The editor is designed to be **embeddable**, meaning the core logic remains decoupled from specific platform APIs (like VS Code or Chrome APIs) through an abstraction layer.
 
