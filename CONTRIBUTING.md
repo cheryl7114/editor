@@ -79,7 +79,7 @@ For new features or architectural changes:
 - **Linting & Formatting**: Follow the existing code style and formatting conventions used in the files you are editing. If the package you are changing defines linting or formatting scripts, run those before submitting code.
 - **Testing**: Ensure that logic changes are covered by tests, and run the relevant test commands for the packages you modify (see their documentation or `package.json`).
 - **Component Design**: Follow functional component patterns and ensure that UI state is managed predictably within the monorepo structure.
-- **New package creation**: If a new package needs to be created, please follow the standards used by the existing packages, including the standard commands `build:dev`, `build:prod`, `test`, `e2e-test`, `lint`
+- **New package creation**: If a new package needs to be created, please follow the standards used by the existing packages, including the standard commands `build:dev`, `build:prod`, `test`, `e2e-test`, `lint`.
 
 ## LLM Usage Policy
 
@@ -89,7 +89,7 @@ To ensure a healthy and productive community, the following expectations apply:
 
 ### Acceptable Use of LLMs
 
-- LLMs may be used to **assist your development** — e.g. drafting code, writing documentation, proposing fixes — as long as **you understand, validate**, and **take responsibility for the results.**
+- LLMs may be used to **assist your development** — e.g., drafting code, writing documentation, proposing fixes — as long as **you understand, validate**, and **take responsibility for the results.**
 - You should only submit contributions (PRs, comments, discussions, issues) that reflect your **own understanding** and **intent**, not what an Agent/LLM "spit out."
 - You may use Agents/LLMs to help you **write better**, but not to **post more**.
 
@@ -107,9 +107,9 @@ To ensure a healthy and productive community, the following expectations apply:
 
 ### If in Doubt
 
-If you're unsure whether your use of Agents/LLMs is acceptable - ask! We're happy to help contributors learn how to use AI tools effectively **without creating noise**.
+If you're unsure whether your use of Agents/LLMs is acceptable — ask! We're happy to help contributors learn how to use AI tools effectively **without creating noise**.
 
-> This isn’t about banning AI - it’s about keeping this project collaborative, human-driven, and focused on quality.
+> This isn't about banning AI — it's about keeping this project collaborative, human-driven, and focused on quality.
 
 ## Pull Request Process
 
