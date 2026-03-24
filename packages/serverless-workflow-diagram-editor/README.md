@@ -14,6 +14,29 @@
    limitations under the License.
 -->
 
-# Code of Conduct
+# serverless-workflow-diagram-editor
 
-We follow the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md). Please contact the [CNCF Code of Conduct Committee](mailto:conduct@cncf.io) in order to report violations of the Code of Conduct.
+Serverless Workflow Diagram Editor react component / npm package.
+---
+
+## Building the Component
+
+```bash
+# Go to serverless-workflow-diagram-editor package
+cd ./packages/serverless-workflow-diagram-editor
+
+# Install dependencies
+pnpm install
+
+# Build package (development)
+pnpm run build:dev
+
+# Or build package (production)
+pnpm run build:prod
+
+# Build storybook static content for publishing (documentation and demo)
+pnpm run build:storybook
+
+# Run storybook (test and development / debugging)
+pnpm run start
+```
