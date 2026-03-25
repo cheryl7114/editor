@@ -22,8 +22,8 @@ import {
 /** Primary UI component for user interaction */
 export const DiagramEditor = ({ ...props }: DiagramEditorProps) => {
   return (
-    <>
-      <SWDiagramEditor content={props.content} isReadOnly={props.isReadOnly} />
-    </>
+    <div style={{ height: "100vh" }}>
+      <SWDiagramEditor isReadOnly={props.isReadOnly} locale={props.locale} />
+    </div>
   );
 };

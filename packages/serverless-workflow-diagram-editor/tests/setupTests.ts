@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { afterEach } from "vitest";
+import { afterEach, vi } from "vitest";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/vitest"; // This extends vitest's expect with jest-dom matchers
 
@@ -22,3 +22,36 @@ import "@testing-library/jest-dom/vitest"; // This extends vitest's expect with 
 afterEach(() => {
   cleanup();
 });
+
+// Mock ResizeObserver
+vi.stubGlobal(
+  "ResizeObserver",
+  class {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  },
+);
+
+// Mock DOMMatrix (required for coordinate calculations)
+vi.stubGlobal(
+  "DOMMatrixReadOnly",
+  class {
+    m22 = 1;
+    constructor(transform: string) {
+      /* logic to parse transform if needed */
+    }
+  },
+);
+
+// Mock PointerEvent (required for drag-and-drop actions)
+if (!global.PointerEvent) {
+  vi.stubGlobal(
+    "PointerEvent",
+    class extends Event {
+      constructor(type: string, params: PointerEventInit = {}) {
+        super(type, params);
+      }
+    },
+  );
+}
