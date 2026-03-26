@@ -83,31 +83,30 @@ For new features or architectural changes:
 
 ## LLM Usage Policy
 
-In this project, we welcome tools that help developers become more productive — including Large Language Models (LLMs) and Agents like ChatGPT, GitHub Copilot, and others.
+In this project, we welcome tools that help developers become more productive — including Large Language Models (LLMs) and agents like ChatGPT, GitHub Copilot, and others. To ensure a healthy and productive community, the following expectations apply:
 
-To ensure a healthy and productive community, the following expectations apply:
+- Use LLMs to **assist your development** — drafting code, writing docs, proposing fixes — as long as you **understand, validate, and take responsibility** for the results.
+- Only submit contributions that reflect your **own understanding and intent**.
+- You may use LLMs to help you **write better**, but not to **post more**.
 
-### Acceptable Use of LLMs
+### Requirements
 
-- LLMs may be used to **assist your development** — e.g., drafting code, writing documentation, proposing fixes — as long as **you understand, validate**, and **take responsibility for the results.**
-- You should only submit contributions (PRs, comments, discussions, issues) that reflect your **own understanding** and **intent**, not what an Agent/LLM "spit out."
-- You may use Agents/LLMs to help you **write better**, but not to **post more**.
-
-### Unacceptable Use
-
-- Submitting code, tests, comments, or issues that appear to be **copied directly from an LLM with little or no human oversight** is **not acceptable**.
-- Posting **large volumes of low-effort suggestions, vague issues, or links with no context** — even if technically accurate — is considered spam.
-- Submitting **AI-generated tests that do not validate actual behavior** or meaningfully cover functionality is not helpful and will be rejected.
-- Using bots, agents, or automated tools to open PRs, file issues, or post content **without human authorship and responsibility** is not allowed.
+- Verify behavior, correctness, and compatibility yourself before submitting. Do not ask maintainers to do this for you.
+- Keep changes narrow and focused. Posting large volumes of low-effort suggestions, vague issues, or links with no context — even if technically accurate — is considered spam.
+- Do **NOT** submit code, tests, comments, or issues that are copied directly from an LLM with little or no human oversight. Be prepared to explain all the changes yourself.
+- Do **NOT** submit AI-generated tests that do not validate actual behavior or meaningfully cover functionality.
+- Do **NOT** use bots, agents, or automated tools to open PRs, file issues, or post content without human authorship and responsibility.
+- Do **NOT** include private code, credentials, tokens, or confidential material.
+- Respect licensing and attribution requirements.
 
 ### Consequences
 
-- We may close issues, PRs, or discussions that violate this policy without detailed explanation.
-- Repeated violations may result in temporary or permanent restrictions from participating in the project.
+1. We may close issues, PRs, or discussions that violate this policy without detailed explanation.
+2. Repeated violations may result in temporary or permanent restrictions from participating in the project.
 
 ### If in Doubt
 
-If you're unsure whether your use of Agents/LLMs is acceptable — ask! We're happy to help contributors learn how to use AI tools effectively **without creating noise**.
+If you're unsure whether your use of agents/LLMs is acceptable — ask! We're happy to help contributors learn how to use AI tools effectively **without creating noise**.
 
 > This isn't about banning AI — it's about keeping this project collaborative, human-driven, and focused on quality.
 
