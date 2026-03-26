@@ -15,7 +15,7 @@
  */
 
 import {
-  DiagramEditor as SWDiagramEditor,
+  DiagramEditor as Component,
   DiagramEditorProps,
 } from "../src/diagram-editor/DiagramEditor";
 
@@ -23,7 +23,7 @@ import {
 export const DiagramEditor = ({ ...props }: DiagramEditorProps) => {
   return (
     <div style={{ height: "100vh" }}>
-      <SWDiagramEditor isReadOnly={props.isReadOnly} locale={props.locale} />
+      <Component isReadOnly={props.isReadOnly} locale={props.locale} />
     </div>
   );
 };

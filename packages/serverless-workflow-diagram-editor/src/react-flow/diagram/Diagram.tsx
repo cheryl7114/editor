@@ -96,9 +96,8 @@ export const Diagram = ({ divRef, ref }: DiagramProps) => {
         <RF.Controls
           fitViewOptions={FIT_VIEW_OPTIONS}
           position={"bottom-right"}
-          showInteractive={false} // Remove lock screen from zoombar
+          showInteractive={false}
         >
-          {/* 3. Add custom button to Controls */}
           <RF.ControlButton onClick={() => setMinimapVisible(!minimapVisible)}>M</RF.ControlButton>
         </RF.Controls>
         <RF.Background className="diagram-background" variant={RF.BackgroundVariant.Cross} />

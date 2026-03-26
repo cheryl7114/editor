@@ -30,7 +30,7 @@ export type DiagramEditorProps = {
   ref?: React.Ref<DiagramEditorRef>;
 };
 
-export const DiagramEditor = ({ isReadOnly, locale, ref }: DiagramEditorProps) => {
+export const DiagramEditor = ({ ref }: DiagramEditorProps) => {
   // TODO: i18n
   // TODO: store, context
   // TODO: ErrorBoundary / fallback
