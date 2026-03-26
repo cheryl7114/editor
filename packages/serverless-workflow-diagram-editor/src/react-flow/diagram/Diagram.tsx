@@ -94,7 +94,6 @@ export const Diagram = ({ divRef, ref }: DiagramProps) => {
         zoomOnScroll={false}
         preventScrolling={true}
         selectionOnDrag={true}
-        proOptions={{ hideAttribution: true }}
         fitView
       >
         {minimapVisible && <RF.MiniMap pannable zoomable position={"top-right"} />}

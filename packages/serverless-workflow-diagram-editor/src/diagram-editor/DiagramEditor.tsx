@@ -27,21 +27,21 @@ export type DiagramEditorRef = {
 export type DiagramEditorProps = {
   isReadOnly: boolean;
   locale: string;
-  diagramEditorRef?: React.Ref<DiagramEditorRef>;
+  ref?: React.Ref<DiagramEditorRef>;
 };
 
-export const DiagramEditor = ({ isReadOnly, locale, diagramEditorRef }: DiagramEditorProps) => {
+export const DiagramEditor = ({ isReadOnly, locale, ref }: DiagramEditorProps) => {
   // TODO: i18n
   // TODO: store, context
-  // TODO: ErrorBounduary / fallback
+  // TODO: ErrorBoundary / fallback
 
   // Refs
-  const diagramDivRef = React.useRef<HTMLDivElement>(null);
-  const diagramRef = React.useRef<DiagramRef>(null);
+  const diagramDivRef = React.useRef<HTMLDivElement | null>(null);
+  const diagramRef = React.useRef<DiagramRef | null>(null);
 
-  // Allow imperativelly controlling the Editor
+  // Allow imperatively controlling the Editor
   React.useImperativeHandle(
-    diagramEditorRef,
+    ref,
     () => ({
       doSomething: () => {
         // TODO: to be implemented, it is just a placeholder

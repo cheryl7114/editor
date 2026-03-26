@@ -32,26 +32,3 @@ vi.stubGlobal(
     disconnect() {}
   },
 );
-
-// Mock DOMMatrix (required for coordinate calculations)
-vi.stubGlobal(
-  "DOMMatrixReadOnly",
-  class {
-    m22 = 1;
-    constructor(transform: string) {
-      /* logic to parse transform if needed */
-    }
-  },
-);
-
-// Mock PointerEvent (required for drag-and-drop actions)
-if (!global.PointerEvent) {
-  vi.stubGlobal(
-    "PointerEvent",
-    class extends Event {
-      constructor(type: string, params: PointerEventInit = {}) {
-        super(type, params);
-      }
-    },
-  );
-}
