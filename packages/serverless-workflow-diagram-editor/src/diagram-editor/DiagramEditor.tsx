@@ -14,33 +14,45 @@
  * limitations under the License.
  */
 
-import type { CSSProperties } from "react";
+import * as React from "react";
+import { Diagram, DiagramRef } from "../react-flow/diagram/Diagram";
 
-const clickmeBtnStyle: CSSProperties = {
-  border: "2px solid blue",
-  borderRadius: "10px",
-  fontSize: "large",
-  fontWeight: "500",
-  background: "blue",
-  color: "white",
+/**
+ * DiagramEditor component API
+ */
+export type DiagramEditorRef = {
+  doSomething: () => void; // TODO: to be implemented, it is just a placeholder
 };
 
 export type DiagramEditorProps = {
-  content: string;
   isReadOnly: boolean;
+  locale: string;
+  ref?: React.Ref<DiagramEditorRef>;
 };
 
-export const DiagramEditor = (props: DiagramEditorProps) => {
-  //TODO: Implement the actual component this is just a placeholder
+export const DiagramEditor = ({ ref }: DiagramEditorProps) => {
+  // TODO: i18n
+  // TODO: store, context
+  // TODO: ErrorBoundary / fallback
+
+  // Refs
+  const diagramDivRef = React.useRef<HTMLDivElement | null>(null);
+  const diagramRef = React.useRef<DiagramRef | null>(null);
+
+  // Allow imperatively controlling the Editor
+  React.useImperativeHandle(
+    ref,
+    () => ({
+      doSomething: () => {
+        // TODO: to be implemented, it is just a placeholder
+      },
+    }),
+    [],
+  );
 
   return (
     <>
-      <h1>Hello from DiagramEditor component!</h1>
-      <p>Read-only: {props.isReadOnly ? "true" : "false"}</p>
-      <p>Content: {props.content}</p>
-      <button style={clickmeBtnStyle} onClick={() => alert("Hello from Diagram!")}>
-        Click me!
-      </button>
+      <Diagram ref={diagramRef} divRef={diagramDivRef} />
     </>
   );
 };
