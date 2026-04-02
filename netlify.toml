@@ -1,5 +1,5 @@
 [build]
-  command = "pnpm install --frozen-lockfile && pnpm build:storybook"
+  command = "pnpm install --frozen-lockfile && pnpm -F @serverlessworkflow/diagram-editor... build:dev && pnpm -F @serverlessworkflow/diagram-editor build:storybook"
   publish = "packages/serverless-workflow-diagram-editor/dist-storybook"
 
   # Ignore publishing if @serverlessworkflow/diagram-editor and its dependencies have no changes
