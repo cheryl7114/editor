@@ -1,0 +1,6 @@
+[build]
+  command = "pnpm install --frozen-lockfile && pnpm build:storybook"
+  publish = "packages/serverless-workflow-diagram-editor/dist-storybook"
+
+  # Ignore publishing if @serverlessworkflow/diagram-editor and its dependencies have no changes
+  ignore = "! pnpm -F '...[origin/main]' exec pnpm pkg get name | grep -q '\"@serverlessworkflow/diagram-editor\"'"
