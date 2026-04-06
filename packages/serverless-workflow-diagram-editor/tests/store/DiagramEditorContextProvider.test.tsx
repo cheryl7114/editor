@@ -79,7 +79,7 @@ describe("DiagramEditorContextProvider Component", () => {
     expect(readOnlyElementChanged).toHaveTextContent(/false/i);
     expect(readOnlyLocaleChanged).toHaveTextContent(/pt/i);
 
-    // 3 rendering cycles are expected 1- fist render, 2- forced by rerender and 3- caused by state updates
+    // 3 rendering cycles are expected 1- first render, 2- forced by rerender and 3- caused by state updates
     expect(renderCount).toHaveTextContent(/3/i);
   });
 
@@ -103,7 +103,7 @@ describe("DiagramEditorContextProvider Component", () => {
     expect(readOnlyElementChanged).toHaveTextContent(/true/i);
     expect(readOnlyLocaleChanged).toHaveTextContent(/en/i);
 
-    // 2 rendering cycles are expected 1- fist render and 2- forced by rerender
+    // 2 rendering cycles are expected 1- first render and 2- forced by rerender
     expect(renderCount).toHaveTextContent(/2/i);
   });
 });
