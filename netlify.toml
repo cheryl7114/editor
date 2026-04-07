@@ -29,5 +29,5 @@
   ignore = """
     set -e
     npm i -g "pnpm@$PNPM_VERSION"
-    ! pnpm -F '...[origin/issue-30-feat-Add-GitHub-Action-to-publish-Storybook-preview-for-every-PR-via-netlify]' -rc exec 'echo "$PNPM_PACKAGE_NAME"' | grep -Fqx "$PREVIEW_PACKAGE_NAME"
+    ! pnpm -F '...[origin/main]' -rc exec 'echo "$PNPM_PACKAGE_NAME"' | grep -Fqx "$PREVIEW_PACKAGE_NAME"
   """
