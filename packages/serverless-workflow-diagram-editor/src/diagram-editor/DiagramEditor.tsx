@@ -21,6 +21,9 @@ import { I18nProvider, detectLocale } from "@serverlessworkflow/i18n";
 import { dictionaries } from "../i18n/locales";
 import { useDiagramEditorContext } from "../store/DiagramEditorContext";
 import { ParsingErrorPage } from "./error-pages/ParsingErrorPage";
+import "./DiagramEditor.css";
+import { ColorMode } from "../types/colorMode";
+
 /**
  * DiagramEditor component API
  */
@@ -33,20 +36,23 @@ export type DiagramEditorProps = {
   isReadOnly: boolean;
   locale: string;
   ref?: React.Ref<DiagramEditorRef>;
+  colorMode?: ColorMode;
 };
 
 const DiagramEditorContent = ({
   diagramRef,
   diagramDivRef,
+  colorMode,
 }: {
   diagramRef: React.RefObject<DiagramRef | null>;
   diagramDivRef: React.RefObject<HTMLDivElement | null>;
+  colorMode: ColorMode;
 }) => {
   const { model } = useDiagramEditorContext();
   return model === null ? (
     <ParsingErrorPage />
   ) : (
-    <Diagram ref={diagramRef} divRef={diagramDivRef} />
+    <Diagram ref={diagramRef} divRef={diagramDivRef} colorMode={colorMode} />
   );
 };
 
@@ -56,11 +62,11 @@ export const DiagramEditor = (props: DiagramEditorProps) => {
   // Refs
   const diagramDivRef = React.useRef<HTMLDivElement | null>(null);
   const diagramRef = React.useRef<DiagramRef | null>(null);
-
   const locale = React.useMemo(() => {
     const supportedLocales = Object.keys(dictionaries);
     return props.locale ?? detectLocale(supportedLocales);
   }, [props.locale]);
+  const colorMode: ColorMode = props.colorMode ?? "system";
 
   // Allow imperatively controlling the Editor
   React.useImperativeHandle(
@@ -81,7 +87,11 @@ export const DiagramEditor = (props: DiagramEditorProps) => {
         locale={locale}
       >
         <I18nProvider locale={locale} dictionaries={dictionaries}>
-          <DiagramEditorContent diagramRef={diagramRef} diagramDivRef={diagramDivRef} />
+          <DiagramEditorContent
+            diagramRef={diagramRef}
+            diagramDivRef={diagramDivRef}
+            colorMode={colorMode}
+          />
         </I18nProvider>
       </DiagramEditorContextProvider>
     </>

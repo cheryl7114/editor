@@ -39,6 +39,7 @@ export const Component: Story = {
   args: {
     isReadOnly: true,
     locale: "en",
+    colorMode: "system",
     content: BASIC_VALID_WORKFLOW_YAML, // TODO: Add better workflow sample when removing hardcoded nodes and edges in Diagram component
   },
 };

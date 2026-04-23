@@ -30,7 +30,9 @@ describe("Story - ErrorPage component", () => {
   it("Renders with message", async () => {
     render(<WithMessage />);
     expect(screen.getByText("Something went wrong")).toBeInTheDocument();
-    expect(screen.getByText("An unexpected error occurred while processing your request.")).toBeInTheDocument();
+    expect(
+      screen.getByText("An unexpected error occurred while processing your request."),
+    ).toBeInTheDocument();
   });
 
   it("Renders with Snippet", async () => {

@@ -14,24 +14,22 @@
  * limitations under the License.
  */
 
-.diagram-container {
-  height: 100%;
-  position: relative;
+ /* The css to be updated after tailwind update */
+.headingContent {
+  color: #000000;
+  background-color: #F8F8F8;
+  margin: 0;
+  padding: 1%;
 }
 
-.diagram-container .diagram-background {
-  --xy-background-pattern-color: #ccc;
-  background-color: #e5e4e2;
-}
-
-.diagram-container.colorMode-dark .diagram-background{ 
-    --xy-background-pattern-color: inherit;
-    background-color: inherit;
+.headingContent.colorMode-dark {
+    color: #F8F8F8;
+    background-color: #141414;
 }
 
 @media (prefers-color-scheme: dark) {
-    .diagram-container.colorMode-system .diagram-background{ 
-        --xy-background-pattern-color: inherit;
-        background-color: inherit;
+    .headingContent.colorMode-system {
+        color: #F8F8F8;
+        background-color: #141414;
     }
 }
