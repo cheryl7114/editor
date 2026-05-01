@@ -20,7 +20,7 @@ import { DiagramEditorDragNDrop } from "./DiagramEditorDragNDrop";
 
 const meta = {
   id: "diagram-editor-drag-n-drop",
-  title: "Example/Diagram-Editor-Drag-N-Drop",
+  title: "Components/DiagramEditorDragNDrop",
   component: DiagramEditorDragNDrop,
   tags: ["autodocs"],
   parameters: {
