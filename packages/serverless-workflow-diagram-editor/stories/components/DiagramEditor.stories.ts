@@ -17,11 +17,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { DiagramEditor } from "./DiagramEditor";
-import { BASIC_VALID_WORKFLOW_YAML } from "../tests/fixtures/workflows";
+import { BASIC_VALID_WORKFLOW_YAML } from "../../tests/fixtures/workflows";
 
 const meta = {
   id: "diagram-editor",
-  title: "Example/Diagram-Editor",
+  title: "Components/DiagramEditor",
   component: DiagramEditor,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
@@ -39,7 +39,6 @@ export const Component: Story = {
   args: {
     isReadOnly: true,
     locale: "en",
-    colorMode: "system",
     content: BASIC_VALID_WORKFLOW_YAML, // TODO: Add better workflow sample when removing hardcoded nodes and edges in Diagram component
   },
 };

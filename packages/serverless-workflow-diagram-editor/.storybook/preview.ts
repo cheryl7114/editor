@@ -18,6 +18,32 @@ import "../src/styles.css";
 import type { Preview } from "@storybook/react-vite";
 
 const preview: Preview = {
+  globalTypes: {
+    theme: {
+      name: "Theme",
+      description: "Global color mode",
+      defaultValue: "system",
+      toolbar: {
+        icon: "paintbrush",
+        dynamicTitle: true,
+        items: [
+          { value: "light", title: "Light" },
+          { value: "dark", title: "Dark" },
+          { value: "system", title: "System" },
+        ],
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      return Story({
+        args: {
+          ...context.args,
+          colorMode: context.globals.theme,
+        },
+      });
+    },
+  ],
   parameters: {
     controls: {
       matchers: {

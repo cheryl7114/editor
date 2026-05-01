@@ -17,7 +17,7 @@
 import {
   DiagramEditor as Component,
   DiagramEditorProps,
-} from "../src/diagram-editor/DiagramEditor";
+} from "../../src/diagram-editor/DiagramEditor";
 
 /** Primary UI component for user interaction */
 export const DiagramEditor = ({ ...props }: DiagramEditorProps) => {

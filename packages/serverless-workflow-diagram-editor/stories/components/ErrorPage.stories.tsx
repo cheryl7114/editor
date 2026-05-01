@@ -15,18 +15,12 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ErrorPage } from "../src/diagram-editor/error-pages/ErrorPage";
 import { PropsWithChildren } from "react";
-import { ColorMode } from "../src/types/colorMode";
-import { useResolvedColorMode } from "../src/hooks/useResolvedColorMode";
+import { ErrorPage } from "../../src/diagram-editor/error-pages/ErrorPage";
+import type { ColorMode } from "../../src/types/colorMode";
+import { useResolvedColorMode } from "../../src/hooks/useResolvedColorMode";
 
-type ErrorPageProps = {
-  title: string;
-  message?: string | undefined;
-  snippet?: string | undefined;
-};
-
-type ErrorPageStoryProps = ErrorPageProps & {
+type ErrorPageStoryArgs = React.ComponentProps<typeof ErrorPage> & {
   colorMode?: ColorMode;
 };
 
@@ -44,8 +38,8 @@ const DecRoot = ({ colorMode, children }: PropsWithChildren<{ colorMode: ColorMo
 };
 
 const meta = {
-  title: "Example/ErrorPage",
-  component: ErrorPage,
+  title: "Components/ErrorPage",
+  render: ({ colorMode: _colorMode, ...args }) => <ErrorPage {...args} />,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
   parameters: {
@@ -54,29 +48,22 @@ const meta = {
   },
   argTypes: {
     colorMode: {
-      control: { type: "select" },
-      options: ["light", "dark", "system"],
-      description:
-        "The color mode to use for the error page. 'system' will use the user's system preference.",
+      table: {
+        disable: true,
+      },
     },
-  },
-  args: {
-    colorMode: "system",
   },
   decorators: [
-    (Story, context) => {
-      const { colorMode, ...storyArgs } = context.args;
-      return (
-        <DecRoot colorMode={colorMode ?? "system"}>
-          <Story args={storyArgs} />
-        </DecRoot>
-      );
-    },
+    (Story, context) => (
+      <DecRoot colorMode={(context.args.colorMode ?? "system") as ColorMode}>
+        <Story />
+      </DecRoot>
+    ),
   ],
-} satisfies Meta<ErrorPageStoryProps>;
+} satisfies Meta<ErrorPageStoryArgs>;
 
 export default meta;
-type Story = StoryObj<ErrorPageStoryProps>;
+type Story = StoryObj<typeof meta>;
 
 export const TitleOnly: Story = {
   args: {
