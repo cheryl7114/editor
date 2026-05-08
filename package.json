@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@playwright/test": "catalog:",
+    "@vitest/browser-playwright": "^4.1.5",
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "oxfmt": "catalog:",
