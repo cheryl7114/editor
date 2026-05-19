@@ -15,10 +15,10 @@
  */
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ErrorPage } from "../src/diagram-editor/error-pages/ErrorPage";
+import { ErrorPage } from "../../src/diagram-editor/error-pages/ErrorPage";
 import { PropsWithChildren } from "react";
-import { ColorMode } from "../src/types/colorMode";
-import { useResolvedColorMode } from "../src/hooks/useResolvedColorMode";
+import { ColorMode } from "../../src/types/colorMode";
+import { useResolvedColorMode } from "../../src/hooks/useResolvedColorMode";
 
 type ErrorPageProps = {
   title: string;
@@ -44,7 +44,7 @@ const DecRoot = ({ colorMode, children }: PropsWithChildren<{ colorMode: ColorMo
 };
 
 const meta = {
-  title: "Example/ErrorPage",
+  title: "Features/ErrorPage",
   component: ErrorPage,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
