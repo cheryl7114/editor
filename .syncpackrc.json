@@ -1,6 +1,24 @@
 {
-  "$schema": "https://unpkg.com/syncpack@14.2.0/dist/schema.json",
+  "$schema": "./node_modules/syncpack/schema.json",
+  "customTypes": {
+    "packageVersion": {
+      "strategy": "version",
+      "path": "version"
+    }
+  },
   "versionGroups": [
+    {
+      "label": "Ignore root package version",
+      "packages": ["serverless-workflow-editor"],
+      "dependencyTypes": ["local"],
+      "isIgnored": true
+    },
+    {
+      "label": "Package versions must be consistent across packages",
+      "packages": ["@serverlessworkflow/*"],
+      "dependencyTypes": ["packageVersion"],
+      "policy": "sameRange"
+    },
     {
       "label": "Use workspace protocol for local packages",
       "dependencies": ["$LOCAL"],
