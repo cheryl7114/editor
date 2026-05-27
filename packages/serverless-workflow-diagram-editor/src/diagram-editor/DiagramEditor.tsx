@@ -106,24 +106,24 @@ export const DiagramEditor = (props: DiagramEditorProps) => {
             };
             return (
               <DiagramEditorErrorBoundary {...errorBoundaryProps} resetKey={props.content}>
-                  <ReactFlowProvider>
-                    <DiagramEditorContextProvider
-                      content={props.content}
-                      isReadOnly={props.isReadOnly}
-                      locale={locale}
-                    >
-                      <SidebarProvider defaultOpen={false}>
-                        <div className="dec-diagram-content">
-                          <DiagramEditorContent
-                            diagramRef={diagramRef}
-                            diagramDivRef={diagramDivRef}
-                            colorMode={resolvedColorMode}
-                          />
-                        </div>
-                        <SidePanel />
-                      </SidebarProvider>
-                    </DiagramEditorContextProvider>
-                  </ReactFlowProvider>
+                <ReactFlowProvider>
+                  <DiagramEditorContextProvider
+                    content={props.content}
+                    isReadOnly={props.isReadOnly}
+                    locale={locale}
+                  >
+                    <SidebarProvider defaultOpen={false}>
+                      <div className="dec-diagram-content">
+                        <DiagramEditorContent
+                          diagramRef={diagramRef}
+                          diagramDivRef={diagramDivRef}
+                          colorMode={resolvedColorMode}
+                        />
+                      </div>
+                      <SidePanel />
+                    </SidebarProvider>
+                  </DiagramEditorContextProvider>
+                </ReactFlowProvider>
               </DiagramEditorErrorBoundary>
             );
           }}
