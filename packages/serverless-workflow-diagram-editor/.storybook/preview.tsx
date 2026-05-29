@@ -36,6 +36,12 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: "todo",
     },
+
+    options: {
+      storySort: {
+        order: ["Introduction", "Features", "Use Cases"],
+      },
+    },
   },
 
   globalTypes: {
