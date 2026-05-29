@@ -17,3 +17,8 @@
 export { default as accumulateRoomReadings } from "./workflows/accumulate-room-readings.yaml?raw";
 export { default as authenticationOAuth2 } from "./workflows/authentication-oauth2.yaml?raw";
 export { default as authenticationReusable } from "./workflows/authentication-reusable.yaml?raw";
+export { default as callAsyncAPIPublish } from "./workflows/call-asyncapi-publish.yaml?raw";
+export { default as callAsyncAPISubscribe } from "./workflows/call-asyncapi-subscribe-consume-forever-foreach.yaml?raw";
+export { default as callCustomFunctionCataloged } from "./workflows/call-custom-function-cataloged.yaml?raw";
+export { default as callCustomFunctionInline } from "./workflows/call-custom-function-inline.yaml?raw";
+export { default as callGrpc } from "./workflows/call-grpc.yaml?raw";

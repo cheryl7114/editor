@@ -55,3 +55,43 @@ export const AuthenticationReusable: Story = {
     content: workflows.authenticationReusable,
   },
 };
+
+export const CallAsyncAPIPublish: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.callAsyncAPIPublish,
+  },
+};
+
+export const CallAsyncAPISubscribe: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.callAsyncAPISubscribe,
+  },
+};
+
+export const CallCustomFunctionCataloged: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.callCustomFunctionCataloged,
+  },
+};
+
+export const CallCustomFunctionInline: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.callCustomFunctionInline,
+  },
+};
+
+export const CallGrpc: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.callGrpc,
+  },
+};
