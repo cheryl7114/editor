@@ -19,7 +19,7 @@ import { DiagramEditor } from "../features/DiagramEditor";
 import * as workflows from "./index";
 
 const meta = {
-  title: "Use Cases",
+  title: "Examples",
   component: DiagramEditor,
   parameters: {
     layout: "fullscreen",
@@ -141,5 +141,53 @@ export const DoSingle: Story = {
     isReadOnly: true,
     locale: "en",
     content: workflows.doSingle,
+  },
+};
+
+export const Emit: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.emit,
+  },
+};
+
+export const For: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.for,
+  },
+};
+
+export const Fork: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.fork,
+  },
+};
+
+export const ListenToAll: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.listenToAll,
+  },
+};
+
+export const ListenToOne: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.listenToOne,
+  },
+};
+
+export const ListenToAnyForeverForeach: Story = {
+  args: {
+    isReadOnly: true,
+    locale: "en",
+    content: workflows.listenToAnyForeverForeach,
   },
 };
