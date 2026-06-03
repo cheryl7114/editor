@@ -1,0 +1,43 @@
+document:
+  dsl: "1.0.3"
+  namespace: default
+  name: sql-export-to-minio
+  version: 0.1.2
+do:
+  - exportDatabase:
+      run:
+        container:
+          image: mcr.microsoft.com/mssql-tools
+          command: >
+            /bin/bash -c "sqlcmd -S $SQLSERVER_HOST -U $SQLSERVER_USER -P '$SQLSERVER_PASSWORD'  -Q 'BACKUP DATABASE [$DATABASE_NAME] TO DISK = N\'/var/backup/db.bak\''  && echo 'Database backup completed'"
+          volumes:
+            /var/backup: /backup
+          environment:
+            SQLSERVERHOST: sqlserver
+            SQLSERVERUSER: SA
+            SQLSERVERPASSWORD: P@ssw0rd
+            DATABASENAME: YourDatabase
+  - readBackupFile:
+      run:
+        container:
+          image: alpine
+          command: >
+            /bin/sh -c "cat /backup/YourDatabase.bak | base64"
+          volumes:
+            /var/backup: /backup
+      export:
+        as: "$context + { base64Backup: . }"
+  - uploadToMinio:
+      call: http
+      with:
+        method: put
+        endpoint:
+          uri: https://minio.example.com/backups/db.bak
+          authentication:
+            bearer:
+              token: 2548qsd5a8qsd43a
+        headers:
+          contentType: application/octet-stream
+        body: ${ $context.base64Backup }
+schedule:
+  cron: 0 0 * * *
