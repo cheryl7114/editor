@@ -32,162 +32,77 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const AccumulateRoomReadings: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.accumulateRoomReadings,
-  },
+// Constants for shared configuration
+const DEFAULT_STORY_ARGS = {
+  isReadOnly: true,
+  locale: "en" as const,
+} as const;
+
+/**
+ * Factory function to create workflow story configurations
+ * @param workflowContent - The YAML workflow content to display
+ * @returns Story configuration object
+ */
+const createWorkflowStory = (workflowContent: string): Story => {
+  if (!workflowContent || workflowContent.trim().length === 0) {
+    console.warn("Empty workflow content provided to story");
+  }
+
+  return {
+    args: {
+      ...DEFAULT_STORY_ARGS,
+      content: workflowContent,
+    },
+  };
 };
 
-export const AuthenticationOAuth2: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.authenticationOAuth2,
-  },
-};
-
-export const AuthenticationReusable: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.authenticationReusable,
-  },
-};
-
-export const CallAsyncAPIPublish: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callAsyncAPIPublish,
-  },
-};
-
-export const CallAsyncAPISubscribe: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callAsyncAPISubscribe,
-  },
-};
-
-export const CallCustomFunctionCataloged: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callCustomFunctionCataloged,
-  },
-};
-
-export const CallCustomFunctionInline: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callCustomFunctionInline,
-  },
-};
-
-export const CallGrpc: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callGrpc,
-  },
-};
-
-export const CallHttpQueryHeadersExpression: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callHttpQueryHeadersExpressions,
-  },
-};
-
-export const CallMCP: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callMCP,
-  },
-};
-
-export const CallOpenAPI: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.callOpenApi,
-  },
-};
-
-export const ConditionalTask: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.conditionalTask,
-  },
-};
-
-export const DoMultiple: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.doMultiple,
-  },
-};
-
-export const DoSingle: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.doSingle,
-  },
-};
-
-export const Emit: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.emit,
-  },
-};
-
-export const For: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.for,
-  },
-};
-
-export const Fork: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.fork,
-  },
-};
-
-export const ListenToAll: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.listenToAll,
-  },
-};
-
-export const ListenToOne: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.listenToOne,
-  },
-};
-
-export const ListenToAnyForeverForeach: Story = {
-  args: {
-    isReadOnly: true,
-    locale: "en",
-    content: workflows.listenToAnyForeverForeach,
-  },
-};
+// Story definitions using the factory function
+export const AccumulateRoomReadings: Story = createWorkflowStory(workflows.accumulateRoomReadings);
+export const AuthenticationOAuth2: Story = createWorkflowStory(workflows.authenticationOAuth2);
+export const AuthenticationReusable: Story = createWorkflowStory(workflows.authenticationReusable);
+export const CallAsyncAPIPublish: Story = createWorkflowStory(workflows.callAsyncAPIPublish);
+export const CallAsyncAPISubscribe: Story = createWorkflowStory(workflows.callAsyncAPISubscribe);
+export const CallCustomFunctionCataloged: Story = createWorkflowStory(
+  workflows.callCustomFunctionCataloged,
+);
+export const CallCustomFunctionInline: Story = createWorkflowStory(
+  workflows.callCustomFunctionInline,
+);
+export const CallGrpc: Story = createWorkflowStory(workflows.callGrpc);
+export const CallHttpQueryHeadersExpression: Story = createWorkflowStory(
+  workflows.callHttpQueryHeadersExpressions,
+);
+export const CallMCP: Story = createWorkflowStory(workflows.callMCP);
+export const CallOpenAPI: Story = createWorkflowStory(workflows.callOpenApi);
+export const ConditionalTask: Story = createWorkflowStory(workflows.conditionalTask);
+export const DoMultiple: Story = createWorkflowStory(workflows.doMultiple);
+export const DoSingle: Story = createWorkflowStory(workflows.doSingle);
+export const Emit: Story = createWorkflowStory(workflows.emit);
+export const For: Story = createWorkflowStory(workflows.for);
+export const Fork: Story = createWorkflowStory(workflows.fork);
+export const ListenToAll: Story = createWorkflowStory(workflows.listenToAll);
+export const ListenToOne: Story = createWorkflowStory(workflows.listenToOne);
+export const ListenToAnyForeverForeach: Story = createWorkflowStory(
+  workflows.listenToAnyForeverForeach,
+);
+export const MockServiceExtension: Story = createWorkflowStory(workflows.mockServiceExtension);
+export const RaiseReusable: Story = createWorkflowStory(workflows.raiseReusable);
+export const RunContainerStdinAndArguments: Story = createWorkflowStory(
+  workflows.runContainerStdinAndArguments,
+);
+export const RunReturnAll: Story = createWorkflowStory(workflows.runReturnAll);
+export const RunScriptWithStdinAndArguments: Story = createWorkflowStory(
+  workflows.runScriptWithStdinAndArguments,
+);
+export const RunShellStdinAndArguments: Story = createWorkflowStory(
+  workflows.runShellStdinAndArguments,
+);
+export const RunSubflow: Story = createWorkflowStory(workflows.runSubflow);
+export const ScheduleCron: Story = createWorkflowStory(workflows.scheduleCron);
+export const ScheduleEventDriven: Story = createWorkflowStory(workflows.scheduleEventDriven);
+export const SetExample: Story = createWorkflowStory(workflows.set);
+export const StarWarsHomeworld: Story = createWorkflowStory(workflows.starWarsHomeworld);
+export const SwitchThenString: Story = createWorkflowStory(workflows.switchThenString);
+export const TryCatchRetryReusable: Story = createWorkflowStory(workflows.tryCatchRetryReusable);
+export const TryCatchThen: Story = createWorkflowStory(workflows.tryCatchThen);
+export const WaitDurationInline: Story = createWorkflowStory(workflows.waitDurationInline);
