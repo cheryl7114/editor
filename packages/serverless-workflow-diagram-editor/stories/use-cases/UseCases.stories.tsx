@@ -38,10 +38,6 @@ const DEFAULT_STORY_ARGS = {
 } as const;
 
 const createWorkflowStory = (workflowContent: string): Story => {
-  if (!workflowContent || workflowContent.trim().length === 0) {
-    console.warn("Empty workflow content provided to story");
-  }
-
   return {
     args: {
       ...DEFAULT_STORY_ARGS,
@@ -50,9 +46,11 @@ const createWorkflowStory = (workflowContent: string): Story => {
   };
 };
 
-export const AutomatedDataBackup = createWorkflowStory(workflows.automatedDataBackup);
-export const ManagingEVChargingStations = createWorkflowStory(workflows.managingEVChargingStations);
-export const ManagingGithubIssues = createWorkflowStory(workflows.managingGithubIssues);
-export const MultiAgentAIContentGeneration = createWorkflowStory(
+export const AutomatedDataBackup: Story = createWorkflowStory(workflows.automatedDataBackup);
+export const ManagingEVChargingStations: Story = createWorkflowStory(
+  workflows.managingEVChargingStations,
+);
+export const ManagingGithubIssues: Story = createWorkflowStory(workflows.managingGithubIssues);
+export const MultiAgentAIContentGeneration: Story = createWorkflowStory(
   workflows.multiAgentAIContentGeneration,
 );

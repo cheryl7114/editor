@@ -44,10 +44,6 @@ const DEFAULT_STORY_ARGS = {
  * @returns Story configuration object
  */
 const createWorkflowStory = (workflowContent: string): Story => {
-  if (!workflowContent || workflowContent.trim().length === 0) {
-    console.warn("Empty workflow content provided to story");
-  }
-
   return {
     args: {
       ...DEFAULT_STORY_ARGS,
