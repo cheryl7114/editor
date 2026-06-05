@@ -19,7 +19,7 @@ import { DiagramEditor } from "../features/DiagramEditor";
 import * as workflows from "./index";
 
 const meta = {
-  title: "Examples/Examples",
+  title: "Examples/Workflows",
   component: DiagramEditor,
   parameters: {
     layout: "fullscreen",
