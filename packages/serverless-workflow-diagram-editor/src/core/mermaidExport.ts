@@ -27,10 +27,17 @@ export function exportToMermaid(workflow: Specification.Workflow): string {
 }
 
 export function copyMermaidToClipboard(mermaidCode: string): Promise<void> {
+  if (typeof navigator === "undefined" || !navigator.clipboard) {
+    return Promise.reject(new Error("Clipboard API is not available in this environment"));
+  }
   return navigator.clipboard.writeText(mermaidCode);
 }
 
 export function downloadMermaidFile(mermaidCode: string, filename: string = "mermaid.mmd"): void {
+  if (typeof document === "undefined") {
+    throw new Error("Document API is not available in this environment");
+  }
+
   const blob = new Blob([mermaidCode], { type: "text/plain" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
@@ -39,5 +46,7 @@ export function downloadMermaidFile(mermaidCode: string, filename: string = "mer
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+  }, 10);
 }

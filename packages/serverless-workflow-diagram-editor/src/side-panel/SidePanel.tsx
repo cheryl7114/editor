@@ -38,6 +38,7 @@ export function SidePanel() {
   const { model, nodes, selectedNodeId } = useDiagramEditorContext();
   const { setOpen } = useSidebar();
   const { t } = useI18n();
+  const [isCopied, setIsCopied] = React.useState(false);
 
   const selectedNode = React.useMemo(
     () =>
@@ -68,7 +69,8 @@ export function SidePanel() {
     try {
       const mermaidCode = exportToMermaid(model);
       await copyMermaidToClipboard(mermaidCode);
-      console.log("mermaid copied to clipboard");
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
     } catch (error) {
       console.error("Failed to copy mermaid code:", error);
     }
@@ -126,7 +128,7 @@ export function SidePanel() {
           <>
             <Button onClick={handleCopyMermaid} variant="outline" size="sm">
               <Copy />
-              {t("sidebar.exportMermaid.copy")}
+              {isCopied ? "Copied!" : t("sidebar.exportMermaid.copy")}
             </Button>
             <Button onClick={handleDownloadMermaid} variant="outline" size="sm">
               <Download />
