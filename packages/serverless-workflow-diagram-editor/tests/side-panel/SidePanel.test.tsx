@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, afterEach } from "vitest";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SidePanel } from "../../src/side-panel/SidePanel";
@@ -98,5 +98,9 @@ describe("SidePanel", () => {
     await user.click(downloadButton);
 
     expect(downloadSpy).toHaveBeenCalledWith("mermaid code");
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
   });
 });

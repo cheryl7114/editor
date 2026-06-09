@@ -48,5 +48,5 @@ export function downloadMermaidFile(mermaidCode: string, filename: string = "mer
   document.body.removeChild(link);
   setTimeout(() => {
     URL.revokeObjectURL(url);
-  }, 10);
+  }, 100);
 }

@@ -64,7 +64,7 @@ export function SidePanel() {
     setOpen(selectedNodeId !== null);
   }, [selectedNodeId, setOpen]);
 
-  const copyTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  const copyTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   React.useEffect(() => {
     return () => {
       if (copyTimeoutRef.current) {
@@ -141,7 +141,7 @@ export function SidePanel() {
         )}
       </SidebarContent>
       <SidebarFooter>
-        {model !== null && !selectedNode && (
+        {model !== null && selectedNodeId === null && (
           <>
             <Button onClick={handleCopyMermaid} variant="outline" size="sm">
               <Copy />
