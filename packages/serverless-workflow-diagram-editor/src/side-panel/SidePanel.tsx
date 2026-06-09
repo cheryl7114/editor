@@ -64,13 +64,30 @@ export function SidePanel() {
     setOpen(selectedNodeId !== null);
   }, [selectedNodeId, setOpen]);
 
+  const copyTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  React.useEffect(() => {
+    return () => {
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handleCopyMermaid = async () => {
     if (!model) return;
     try {
       const mermaidCode = exportToMermaid(model);
       await copyMermaidToClipboard(mermaidCode);
       setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 2000);
+
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+      }
+
+      copyTimeoutRef.current = setTimeout(() => {
+        setIsCopied(false);
+        copyTimeoutRef.current = null;
+      }, 2000);
     } catch (error) {
       console.error("Failed to copy mermaid code:", error);
     }
@@ -128,7 +145,7 @@ export function SidePanel() {
           <>
             <Button onClick={handleCopyMermaid} variant="outline" size="sm">
               <Copy />
-              {isCopied ? "Copied!" : t("sidebar.exportMermaid.copy")}
+              {isCopied ? t("sidebar.exportMermaid.copied") : t("sidebar.exportMermaid.copy")}
             </Button>
             <Button onClick={handleDownloadMermaid} variant="outline" size="sm">
               <Download />
