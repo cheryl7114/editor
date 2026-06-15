@@ -29,7 +29,7 @@ import { useDiagramEditorContext } from "@/store/DiagramEditorContext";
 import { WorkflowInfoView } from "@/side-panel/WorkflowInfoView";
 import { NodeDetailsView } from "@/side-panel/NodeDetailsView";
 import { MermaidActions } from "@/side-panel/MermaidActions";
-import { taskNodeConfigMap, type LeafNodeType } from "@/react-flow/nodes/taskNodeConfig";
+import { getNodeVisualConfig } from "@/react-flow/nodes/taskNodeConfig";
 import type { BaseNodeData } from "@/react-flow/nodes/Nodes";
 import "./SidePanel.css";
 
@@ -47,9 +47,7 @@ export function SidePanel() {
     [selectedNodeId, nodes],
   );
 
-  const nodeConfig = selectedNode
-    ? taskNodeConfigMap[selectedNode.type as LeafNodeType]
-    : undefined;
+  const nodeConfig = getNodeVisualConfig(selectedNode?.type);
 
   const HeaderIcon = selectedNode ? (nodeConfig?.icon ?? Box) : Workflow;
 
