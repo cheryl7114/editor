@@ -36,6 +36,8 @@ export const en = {
   "sidebar.sectionSource": "Source",
   "sidebar.viewSource": "View source",
   "sidebar.noDetails": "No additional details for this node",
+  "node.entry": "Entry",
+  "node.exit": "Exit",
   "sidebar.exportMermaid.copy": "Copy Mermaid Code",
   "sidebar.exportMermaid.download": "Download as Mermaid File",
   "sidebar.exportMermaid.copied": "Copied!",
