@@ -95,7 +95,12 @@ function TaskNodeBadge({ badge, testId }: BadgeProps) {
   if (isUnknown) {
     /* TODO: instead of using the browser default to display tool tip like below, replace with tooltip component when we add it */
     return (
-      <span title={badge} className="dec-task-node-badge-custom" data-testid={`${testId}-custom`}>
+      <span
+        title={badge}
+        aria-label={`Badge: ${badge}`}
+        className="dec-task-node-badge-custom"
+        data-testid={`${testId}-custom`}
+      >
         {badge}
       </span>
     );
