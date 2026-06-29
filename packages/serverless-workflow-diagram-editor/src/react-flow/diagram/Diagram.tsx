@@ -16,6 +16,7 @@
 
 import * as React from "react";
 import * as RF from "@xyflow/react";
+import { useI18n } from "@serverlessworkflow/i18n";
 import { ReactFlowNodeTypes } from "../nodes/Nodes";
 import "@xyflow/react/dist/style.css";
 import "./Diagram.css";
@@ -46,6 +47,7 @@ export type DiagramProps = {
 };
 
 export const Diagram = ({ divRef, ref, colorMode = "light" }: DiagramProps) => {
+  const { t } = useI18n();
   const reactFlowInstance: RF.ReactFlowInstance = RF.useReactFlow();
   const { model, errors, nodes, edges, isReadOnly, setNodes, setEdges, setSelectedNodeId } =
     useDiagramEditorContext();
@@ -187,7 +189,12 @@ export const Diagram = ({ divRef, ref, colorMode = "light" }: DiagramProps) => {
           position={"bottom-right"}
           showInteractive={false}
         >
-          <RF.ControlButton onClick={() => setMinimapVisible(!minimapVisible)}>M</RF.ControlButton>
+          <RF.ControlButton
+            onClick={() => setMinimapVisible(!minimapVisible)}
+            aria-label={minimapVisible ? t("aria.minimap.hide") : t("aria.minimap.show")}
+          >
+            M
+          </RF.ControlButton>
         </RF.Controls>
         <RF.Background className="diagram-background" variant={RF.BackgroundVariant.Cross} />
       </RF.ReactFlow>
